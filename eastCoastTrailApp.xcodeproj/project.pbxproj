@@ -15,6 +15,13 @@
 		928D93FD1EAFB0FC0020ECE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928D93FB1EAFB0FC0020ECE2 /* LaunchScreen.storyboard */; };
 		928D94081EAFB0FC0020ECE2 /* eastCoastTrailAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D94071EAFB0FC0020ECE2 /* eastCoastTrailAppTests.swift */; };
 		928D94131EAFB0FC0020ECE2 /* eastCoastTrailAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D94121EAFB0FC0020ECE2 /* eastCoastTrailAppUITests.swift */; };
+		928D94211EAFB40A0020ECE2 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D94201EAFB40A0020ECE2 /* PopUpViewController.swift */; };
+		928D94281EAFB66F0020ECE2 /* camBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94221EAFB66F0020ECE2 /* camBack.jpg */; };
+		928D94291EAFB66F0020ECE2 /* capeSpear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94231EAFB66F0020ECE2 /* capeSpear.jpg */; };
+		928D942A1EAFB66F0020ECE2 /* eastcoastt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94241EAFB66F0020ECE2 /* eastcoastt.jpg */; };
+		928D942B1EAFB66F0020ECE2 /* eastcoastt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94251EAFB66F0020ECE2 /* eastcoastt1.jpg */; };
+		928D942C1EAFB66F0020ECE2 /* lamanche.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94261EAFB66F0020ECE2 /* lamanche.jpg */; };
+		928D942D1EAFB66F0020ECE2 /* spout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94271EAFB66F0020ECE2 /* spout.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		928D940E1EAFB0FC0020ECE2 /* eastCoastTrailAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eastCoastTrailAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		928D94121EAFB0FC0020ECE2 /* eastCoastTrailAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eastCoastTrailAppUITests.swift; sourceTree = "<group>"; };
 		928D94141EAFB0FC0020ECE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		928D94201EAFB40A0020ECE2 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		928D94221EAFB66F0020ECE2 /* camBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camBack.jpg; sourceTree = "<group>"; };
+		928D94231EAFB66F0020ECE2 /* capeSpear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = capeSpear.jpg; sourceTree = "<group>"; };
+		928D94241EAFB66F0020ECE2 /* eastcoastt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eastcoastt.jpg; sourceTree = "<group>"; };
+		928D94251EAFB66F0020ECE2 /* eastcoastt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eastcoastt1.jpg; sourceTree = "<group>"; };
+		928D94261EAFB66F0020ECE2 /* lamanche.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lamanche.jpg; sourceTree = "<group>"; };
+		928D94271EAFB66F0020ECE2 /* spout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spout.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,12 @@
 		928D93EF1EAFB0FC0020ECE2 /* eastCoastTrailApp */ = {
 			isa = PBXGroup;
 			children = (
+				928D94221EAFB66F0020ECE2 /* camBack.jpg */,
+				928D94231EAFB66F0020ECE2 /* capeSpear.jpg */,
+				928D94241EAFB66F0020ECE2 /* eastcoastt.jpg */,
+				928D94251EAFB66F0020ECE2 /* eastcoastt1.jpg */,
+				928D94261EAFB66F0020ECE2 /* lamanche.jpg */,
+				928D94271EAFB66F0020ECE2 /* spout.jpg */,
 				928D93F01EAFB0FC0020ECE2 /* AppDelegate.swift */,
 				928D93F21EAFB0FC0020ECE2 /* FirstViewController.swift */,
 				928D93F41EAFB0FC0020ECE2 /* SecondViewController.swift */,
@@ -106,6 +126,7 @@
 				928D93F91EAFB0FC0020ECE2 /* Assets.xcassets */,
 				928D93FB1EAFB0FC0020ECE2 /* LaunchScreen.storyboard */,
 				928D93FE1EAFB0FC0020ECE2 /* Info.plist */,
+				928D94201EAFB40A0020ECE2 /* PopUpViewController.swift */,
 			);
 			path = eastCoastTrailApp;
 			sourceTree = "<group>";
@@ -238,8 +259,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928D94281EAFB66F0020ECE2 /* camBack.jpg in Resources */,
+				928D942D1EAFB66F0020ECE2 /* spout.jpg in Resources */,
 				928D93FD1EAFB0FC0020ECE2 /* LaunchScreen.storyboard in Resources */,
+				928D94291EAFB66F0020ECE2 /* capeSpear.jpg in Resources */,
+				928D942B1EAFB66F0020ECE2 /* eastcoastt1.jpg in Resources */,
+				928D942C1EAFB66F0020ECE2 /* lamanche.jpg in Resources */,
 				928D93FA1EAFB0FC0020ECE2 /* Assets.xcassets in Resources */,
+				928D942A1EAFB66F0020ECE2 /* eastcoastt.jpg in Resources */,
 				928D93F81EAFB0FC0020ECE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +295,7 @@
 				928D93F51EAFB0FC0020ECE2 /* SecondViewController.swift in Sources */,
 				928D93F11EAFB0FC0020ECE2 /* AppDelegate.swift in Sources */,
 				928D93F31EAFB0FC0020ECE2 /* FirstViewController.swift in Sources */,
+				928D94211EAFB40A0020ECE2 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +548,7 @@
 				928D94191EAFB0FC0020ECE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		928D941A1EAFB0FC0020ECE2 /* Build configuration list for PBXNativeTarget "eastCoastTrailAppTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +557,7 @@
 				928D941C1EAFB0FC0020ECE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		928D941D1EAFB0FC0020ECE2 /* Build configuration list for PBXNativeTarget "eastCoastTrailAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +566,7 @@
 				928D941F1EAFB0FC0020ECE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
