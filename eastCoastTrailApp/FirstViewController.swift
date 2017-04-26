@@ -8,6 +8,11 @@
 
 import UIKit
 
+class PlaceTableViewCell: UITableViewCell {
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var imagesView: UIImageView!
+}
+
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -39,19 +44,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "MyTestCell")
+        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "MyTestCell") as! PlaceTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTestCell") as! PlaceTableViewCell
+        cell.infoLabel.text = "Row \(indexPath.row)"
+        //cell.detailTextLabel?.text = "Subtitle \(indexPath.row)"
         
-        cell.textLabel?.text = "Row \(indexPath.row)"
-        cell.detailTextLabel?.text = "Subtitle \(indexPath.row)"
-        
-        var image : UIImage = UIImage(named: placemarks[indexPath.row])!
+        let image : UIImage = UIImage(named: placemarks[indexPath.row])!
 
         //var frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         
         
         
-        cell.imageView?.image = image
-        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imagesView.image = image
+   
         
         return cell
     }
