@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {

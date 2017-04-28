@@ -37,9 +37,13 @@ class PopUpViewController : UIViewController {
     
     open func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool)
     {
+        
+
         aView.addSubview(self.view)
+        popUpView.backgroundColor = UIColor(patternImage: UIImage(named: "camBack.jpg")!).withAlphaComponent(0.5)
         logoImage!.image = image
         messageLabel!.text = message
+        messageLabel!.backgroundColor = UIColor(white:1,alpha:0.7)
         if animated
         {
             self.showAnimate()
