@@ -23,6 +23,7 @@
 		928D942C1EAFB66F0020ECE2 /* lamanche.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94261EAFB66F0020ECE2 /* lamanche.jpg */; };
 		928D942D1EAFB66F0020ECE2 /* spout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94271EAFB66F0020ECE2 /* spout.jpg */; };
 		928D942F1EB3633C0020ECE2 /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D942E1EB3633C0020ECE2 /* infoViewController.swift */; };
+		928D94311EB798A50020ECE2 /* connectionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D94301EB798A50020ECE2 /* connectionCheck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		928D94261EAFB66F0020ECE2 /* lamanche.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lamanche.jpg; sourceTree = "<group>"; };
 		928D94271EAFB66F0020ECE2 /* spout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spout.jpg; sourceTree = "<group>"; };
 		928D942E1EB3633C0020ECE2 /* infoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
+		928D94301EB798A50020ECE2 /* connectionCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = connectionCheck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				928D93FB1EAFB0FC0020ECE2 /* LaunchScreen.storyboard */,
 				928D93FE1EAFB0FC0020ECE2 /* Info.plist */,
 				928D94201EAFB40A0020ECE2 /* PopUpViewController.swift */,
+				928D94301EB798A50020ECE2 /* connectionCheck.swift */,
 			);
 			path = eastCoastTrailApp;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				928D93F51EAFB0FC0020ECE2 /* SecondViewController.swift in Sources */,
 				928D93F11EAFB0FC0020ECE2 /* AppDelegate.swift in Sources */,
+				928D94311EB798A50020ECE2 /* connectionCheck.swift in Sources */,
 				928D942F1EB3633C0020ECE2 /* infoViewController.swift in Sources */,
 				928D93F31EAFB0FC0020ECE2 /* FirstViewController.swift in Sources */,
 				928D94211EAFB40A0020ECE2 /* PopUpViewController.swift in Sources */,

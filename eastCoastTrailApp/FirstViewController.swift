@@ -45,6 +45,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         popViewController.title = "This is a popup view"
         popViewController.showInView(aView: self.view, withImage: UIImage(named: "eastcoastt1.jpg"), withMessage: "You just triggered a great popup window", animated: true)
         
+        print(currentReachabilityStatus)
         
         
         var cal = Calendar.current
