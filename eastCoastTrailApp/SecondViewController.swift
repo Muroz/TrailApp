@@ -9,27 +9,69 @@
 import UIKit
 import Mapbox
 
-class SecondViewController: UIViewController {
-
+class SecondViewController: UIViewController, MGLMapViewDelegate {
+    var mapView: MGLMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let styleURL = URL(string: "https://www.mapbox.com/ios-sdk/files/mapbox-raster-v8.json")
-
-        let mapView = MGLMapView(frame: view.bounds,  styleURL: styleURL)
+        
+        mapView = MGLMapView(frame: view.bounds)
+        mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .darkGray
         
-        // Set the map’s center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 47.5615, longitude: -52.7126), zoomLevel: 15, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude:47.5701, longitude: -52.6819), zoomLevel: 12, animated: false)
+        
+        mapView.delegate = self
         view.addSubview(mapView)
-        
-//        let btn: UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 50, height: 50))
-//        btn.backgroundColor = UIColor.green
-//        btn.setTitle("+", for: .normal)
-//        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-//        btn.tag = 1
-//        view.addSubview(btn)
     }
-
+    
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        
+        // Parse the GeoJSON data.
+        DispatchQueue.global().async {
+            guard let url = Bundle.main.url(forResource: "metro-line", withExtension: "geojson") else { return }
+            
+            let data = try! Data(contentsOf: url)
+            
+            DispatchQueue.main.async {
+                self.drawShapeCollection(data: data)
+            }
+        }
+    }
+    
+    func drawShapeCollection(data: Data) {
+        guard let style = self.mapView.style else { return }
+        
+        // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
+        let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
+        
+        // Create source and add it to the map style.
+        let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
+        style.addSource(source)
+        
+        // Create station style layer.
+        let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
+        
+        // Use a predicate to filter out non-points.
+        circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
+        circleLayer.circleColor = MGLStyleValue(rawValue: .red)
+        circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
+        circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
+        circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
+        
+        // Create line style layer.
+        let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
+        
+        // Use a predicate to filter out the stations.
+        lineLayer.predicate = NSPredicate(format: "TYPE = 'Rail line'")
+        lineLayer.lineColor = MGLStyleValue(rawValue: .red)
+        lineLayer.lineWidth = MGLStyleValue(rawValue: 2)
+        
+        // Add style layers to the map view's style.
+        style.addLayer(circleLayer)
+        style.insertLayer(lineLayer, below: circleLayer)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
