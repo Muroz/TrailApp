@@ -142,7 +142,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
-        return 100
+        return 200
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
