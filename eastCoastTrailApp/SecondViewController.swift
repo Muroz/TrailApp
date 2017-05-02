@@ -14,6 +14,13 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var popup: UILabel?
     
+    
+//    var timer: Timer?
+//    var polylineSource: MGLShapeSource?
+//    var currentIndex = 1
+//    var allCoordinates: [CLLocationCoordinate2D]!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +36,7 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
     }
     
+    
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         // Parse the GeoJSON data.
@@ -41,6 +49,9 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
                 self.drawShapeCollection(data: data)
             }
         }
+//        addLayer(to: style)
+//        animatePolyline()
+        
     }
     
     
