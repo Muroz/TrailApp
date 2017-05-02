@@ -35,22 +35,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2po-46-ifU">
-                                                    <rect key="frame" x="227" y="0.0" width="133" height="44"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHp-SD-KvL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2po-46-ifU">
+                                                    <rect key="frame" x="190" y="0.0" width="98" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="133" id="CvU-tI-X50"/>
+                                                        <constraint firstAttribute="width" constant="98" id="CvU-tI-X50"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHp-SD-KvL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jHp-SD-KvL" firstAttribute="leading" secondItem="2po-46-ifU" secondAttribute="trailing" constant="-360" id="75X-i6-k8e"/>
-                                                <constraint firstItem="2po-46-ifU" firstAttribute="leading" secondItem="Sme-w8-kpd" secondAttribute="leadingMargin" constant="219" id="9bI-LQ-Zx1"/>
+                                                <constraint firstItem="jHp-SD-KvL" firstAttribute="leading" secondItem="2po-46-ifU" secondAttribute="trailing" constant="-288" id="75X-i6-k8e"/>
+                                                <constraint firstItem="2po-46-ifU" firstAttribute="leading" secondItem="Sme-w8-kpd" secondAttribute="leadingMargin" constant="182" id="9bI-LQ-Zx1"/>
                                                 <constraint firstItem="2po-46-ifU" firstAttribute="centerY" secondItem="Sme-w8-kpd" secondAttribute="centerY" id="Tps-Ne-Dzm"/>
                                                 <constraint firstItem="2po-46-ifU" firstAttribute="top" secondItem="Sme-w8-kpd" secondAttribute="top" id="bK2-SL-OBH"/>
                                                 <constraint firstItem="2po-46-ifU" firstAttribute="bottom" secondItem="jHp-SD-KvL" secondAttribute="bottom" id="ceF-Ae-4k0"/>
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807.2" y="-358.4707646176912"/>
+            <point key="canvasLocation" x="1805.625" y="-358.75"/>
         </scene>
         <!--Information-->
         <scene sceneID="mmR-DN-WHC">

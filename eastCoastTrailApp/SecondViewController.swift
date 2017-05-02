@@ -96,6 +96,7 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
     func handleTap(_ tap: UITapGestureRecognizer) {
         
         if tap.state == .ended {
+            showPopup(false, animated: false)
             print("im tapping")
             
             let point = tap.location(in: tap.view)
@@ -103,13 +104,12 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
             let width = CGFloat(50.2)
 
             let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
-            let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers:["Hello"])
+            let stations = mapView.visibleFeatures(in: rect, styleLayerIdentifiers:["stations"])
             
-            if ports.count > 0 {
-                let port = ports.first!
-                
-                if popup == nil {
-                    popup = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+            if stations.count > 0 {
+                let station = stations.first!
+    
+                    popup = UILabel(frame: CGRect(x:0, y:0, width: 100, height: 40))
                     popup!.backgroundColor = UIColor.white.withAlphaComponent(0.9)
                     popup!.layer.cornerRadius = 4
                     popup!.layer.masksToBounds = true
@@ -119,12 +119,20 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
                     popup!.textColor = UIColor.black
                     popup!.alpha = 0
                     view.addSubview(popup!)
-                }
-                popup!.text = (port.attribute(forKey: "name")! as! String)
-//            showPopup(true, animated: true)
+                popup!.text = (station.attribute(forKey: "NAME")! as! String)
   
+                let point = mapView.convert(station.coordinate, toPointTo: mapView)
+                popup!.center = CGPoint(x: point.x, y: point.y - 50)
+                if popup!.alpha < 1 {
+                    showPopup(true, animated: true)
+                }
             }
+            
         }
+    }
+    
+    func mapViewRegionIsChanging(_ mapView: MGLMapView) {
+        showPopup(false, animated: false)
     }
     
     func showPopup(_ shouldShow: Bool, animated: Bool) {
@@ -137,7 +145,6 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
             popup?.alpha = alpha
         }
     }
-
 
 
 }
