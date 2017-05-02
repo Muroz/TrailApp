@@ -8,9 +8,11 @@
 
 import UIKit
 import Mapbox
+import Foundation
 
 class SecondViewController: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
+    var popup: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
         
         mapView.delegate = self
         view.addSubview(mapView)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -40,6 +43,8 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
         }
     }
     
+    
+    
     func drawShapeCollection(data: Data) {
         guard let style = self.mapView.style else { return }
         
@@ -54,12 +59,13 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
         let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
         
         // Use a predicate to filter out non-points.
+        
         circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
         circleLayer.circleColor = MGLStyleValue(rawValue: .red)
         circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
         circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
         circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
-        
+    
         // Create line style layer.
         let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
         
@@ -76,7 +82,51 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func handleTap(_ tap: UITapGestureRecognizer) {
+        
+        if tap.state == .ended {
+            print("im tapping")
+            
+            let point = tap.location(in: tap.view)
+            print(point)
+            let width = CGFloat(50.2)
+
+            let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
+            let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers:["Hello"])
+            
+            if ports.count > 0 {
+                let port = ports.first!
+                
+                if popup == nil {
+                    popup = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+                    popup!.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+                    popup!.layer.cornerRadius = 4
+                    popup!.layer.masksToBounds = true
+                    popup!.textAlignment = .center
+                    popup!.lineBreakMode = .byTruncatingTail
+                    popup!.font = UIFont.systemFont(ofSize: 16)
+                    popup!.textColor = UIColor.black
+                    popup!.alpha = 0
+                    view.addSubview(popup!)
+                }
+                popup!.text = (port.attribute(forKey: "name")! as! String)
+//            showPopup(true, animated: true)
+  
+            }
+        }
+    }
+    
+    func showPopup(_ shouldShow: Bool, animated: Bool) {
+        let alpha: CGFloat = (shouldShow ? 1 : 0)
+        if animated {
+            UIView.animate(withDuration: 0.25) { [unowned self] in
+                self.popup?.alpha = alpha
+            }
+        } else {
+            popup?.alpha = alpha
+        }
+    }
+
 
 
 }
-
