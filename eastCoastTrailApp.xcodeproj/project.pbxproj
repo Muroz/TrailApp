@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923970921EB8F18E00E328B3 /* packageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923970911EB8F18E00E328B3 /* packageViewController.swift */; };
 		928D93F11EAFB0FC0020ECE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D93F01EAFB0FC0020ECE2 /* AppDelegate.swift */; };
 		928D93F31EAFB0FC0020ECE2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D93F21EAFB0FC0020ECE2 /* FirstViewController.swift */; };
 		928D93F51EAFB0FC0020ECE2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D93F41EAFB0FC0020ECE2 /* SecondViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		923970911EB8F18E00E328B3 /* packageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = packageViewController.swift; sourceTree = "<group>"; };
 		928D93ED1EAFB0FC0020ECE2 /* eastCoastTrailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eastCoastTrailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928D93F01EAFB0FC0020ECE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		928D93F21EAFB0FC0020ECE2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				928D93FE1EAFB0FC0020ECE2 /* Info.plist */,
 				928D94201EAFB40A0020ECE2 /* PopUpViewController.swift */,
 				928D94301EB798A50020ECE2 /* connectionCheck.swift */,
+				923970911EB8F18E00E328B3 /* packageViewController.swift */,
 			);
 			path = eastCoastTrailApp;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				928D93F51EAFB0FC0020ECE2 /* SecondViewController.swift in Sources */,
 				928D93F11EAFB0FC0020ECE2 /* AppDelegate.swift in Sources */,
+				923970921EB8F18E00E328B3 /* packageViewController.swift in Sources */,
 				928D94311EB798A50020ECE2 /* connectionCheck.swift in Sources */,
 				928D942F1EB3633C0020ECE2 /* infoViewController.swift in Sources */,
 				928D93F31EAFB0FC0020ECE2 /* FirstViewController.swift in Sources */,
