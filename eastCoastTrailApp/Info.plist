@@ -10,6 +10,8 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoibWMyODgyIiwiYSI6ImNqMjZjZjdsMDAwZTEzNHFmNXk1bGJpbDIifQ.jaXEzY40GjNuZSr6PVG9Tg</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

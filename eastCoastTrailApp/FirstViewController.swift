@@ -45,8 +45,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 //        popViewController.title = "This is a popup view"
 //        popViewController.showInView(aView: self.view, withImage: UIImage(named: "eastcoastt1.jpg"), withMessage: "You just triggered a great popup window", animated: true)
         
-        
-        
+
+  
         var cal = Calendar.current
         var comps = cal.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
         comps.hour = 0

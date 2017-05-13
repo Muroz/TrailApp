@@ -9,41 +9,58 @@
 import UIKit
 import Mapbox
 import Foundation
+import CoreLocation
 
-class SecondViewController: UIViewController, MGLMapViewDelegate {
-    var mapView: MGLMapView!
-    var popup: UILabel?
+class SecondViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDelegate  {
+
     
+    
+ 
+    @IBOutlet var mapView: MGLMapView!
+    @IBOutlet weak var popup: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
-    
+    @IBOutlet weak var userlocbtn: UIButton!
+    var userLocation = [CLLocationCoordinate2D]()
+    var polylineSource: MGLShapeSource?
 //    var timer: Timer?
 //    var polylineSource: MGLShapeSource?
 //    var currentIndex = 1
 //    var allCoordinates: [CLLocationCoordinate2D]!
+    let locationManager = CLLocationManager.init()
+    let hello = MGLPointAnnotation()
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = .darkGray
-        
         mapView.setCenter(CLLocationCoordinate2D(latitude:47.5701, longitude: -52.6819), zoomLevel: 12, animated: false)
-        
         mapView.delegate = self
-        view.addSubview(mapView)
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
+//        mapView.showsUserLocation = true
+        self.locationManager.requestAlwaysAuthorization()
         
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
+        userlocbtn.tag = 1
+        
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
         
         // Setup offline pack notification handlers.
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveError), name: NSNotification.Name.MGLOfflinePackError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveMaximumAllowedMapboxTiles), name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
     }
-    
-    
+  
+//    
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         // Parse the GeoJSON data.
@@ -57,10 +74,59 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
             }
         }
         // Start downloading tiles and resources for z13-16.
-        startOfflinePackDownload()
+        //startOfflinePackDownload()
 //        addLayer(to: style)
 //        animatePolyline()
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager,didUpdateHeading newHeading: CLHeading) {
+
+        print(newHeading.magneticHeading)
+
+    }
+    
+    @objc(locationManager:didUpdateLocations:) func locationManager(_ manager: CLLocationManager, didUpdateLocations Locations: [CLLocation]) {
+        mapView.removeAnnotation(hello)
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        userLocation.append(locValue)
+        hello.coordinate = locValue
+        hello.title = "Hello world!"
+        hello.subtitle = "Here is my location"
+        
+        // Add marker `hello` to the map.
+        mapView.addAnnotation(hello)
+    }
+    
+    
+//    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+//        // Try to reuse the existing ‘pisa’ annotation image, if it exists.
+//        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "hello")
+//        
+//        if annotationImage == nil {
+//            // Leaning Tower of Pisa by Stefan Spieler from the Noun Project.
+//            var image = UIImage(named: "user_location")!
+//            
+//            // The anchor point of an annotation is currently always the center. To
+//            // shift the anchor point to the bottom of the annotation, the image
+//            // asset includes transparent bottom padding equal to the original image
+//            // height.
+//            //
+//            // To make this padding non-interactive, we create another image object
+//            // with a custom alignment rect that excludes the padding.
+//            image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/2, right: 0))
+//            
+//            // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
+//            annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pisa")
+//        }
+//        
+//        return annotationImage
+//    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        // Always allow callouts to popup when annotations are tapped.
+        return true
     }
     
     
@@ -117,8 +183,7 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
             
             if stations.count > 0 {
                 let station = stations.first!
-    
-                    popup = UILabel(frame: CGRect(x:0, y:0, width: 100, height: 40))
+                    popup!.frame = CGRect(x:0, y:0, width: 100, height: 40)
                     popup!.backgroundColor = UIColor.white.withAlphaComponent(0.9)
                     popup!.layer.cornerRadius = 4
                     popup!.layer.masksToBounds = true
@@ -237,5 +302,57 @@ class SecondViewController: UIViewController, MGLMapViewDelegate {
     
 
 
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+  @IBAction func flytoUserLocation(sender:UIButton!) {
+        let btnsendtag: UIButton = sender
+        if btnsendtag.tag == 1 {
+            
+            mapView.setCenter(userLocation.popLast()!,  zoomLevel: 12,animated: true)
 
+        }
+        }
+    
+    
+    func Userpath(to style: MGLStyle) {
+        // Add an empty MGLShapeSource, we’ll keep a reference to this and add points to this later.
+        let source = MGLShapeSource(identifier: "polyline", shape: nil, options: nil)
+        style.addSource(source)
+        polylineSource = source
+        
+        // Add a layer to style our polyline.
+        let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
+        layer.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineJoin: .round))
+        layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
+        layer.lineColor = MGLStyleValue(rawValue: UIColor.red)
+        layer.lineWidth = MGLStyleFunction(interpolationMode: .exponential,
+                                           cameraStops: [14: MGLConstantStyleValue<NSNumber>(rawValue: 5),
+                                                         18: MGLConstantStyleValue<NSNumber>(rawValue: 20)],
+                                           options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
+        style.addLayer(layer)
+    }
 }

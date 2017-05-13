@@ -24,6 +24,7 @@
 		928D942D1EAFB66F0020ECE2 /* spout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928D94271EAFB66F0020ECE2 /* spout.jpg */; };
 		928D942F1EB3633C0020ECE2 /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D942E1EB3633C0020ECE2 /* infoViewController.swift */; };
 		C115C0181EB8BADB0072AB2A /* metro-line.geojson in Resources */ = {isa = PBXBuildFile; fileRef = C115C0171EB8BADB0072AB2A /* metro-line.geojson */; };
+		C144EC8C1EC1EF0200995BD7 /* user_location.png in Resources */ = {isa = PBXBuildFile; fileRef = C144EC8B1EC1EF0200995BD7 /* user_location.png */; };
 		C19258B61EB79E220007BF1B /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19258B51EB79E220007BF1B /* Mapbox.framework */; };
 		C19258B71EB79E220007BF1B /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C19258B51EB79E220007BF1B /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		928D94271EAFB66F0020ECE2 /* spout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spout.jpg; sourceTree = "<group>"; };
 		928D942E1EB3633C0020ECE2 /* infoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
 		C115C0171EB8BADB0072AB2A /* metro-line.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "metro-line.geojson"; sourceTree = "<group>"; };
+		C144EC8B1EC1EF0200995BD7 /* user_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_location.png; sourceTree = "<group>"; };
 		C19258B51EB79E220007BF1B /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 				928D94261EAFB66F0020ECE2 /* lamanche.jpg */,
 				928D94271EAFB66F0020ECE2 /* spout.jpg */,
 				928D93F01EAFB0FC0020ECE2 /* AppDelegate.swift */,
+				C144EC8B1EC1EF0200995BD7 /* user_location.png */,
 				928D93F21EAFB0FC0020ECE2 /* FirstViewController.swift */,
 				928D93F41EAFB0FC0020ECE2 /* SecondViewController.swift */,
 				928D93F61EAFB0FC0020ECE2 /* Main.storyboard */,
@@ -244,7 +247,7 @@
 				TargetAttributes = {
 					928D93EC1EAFB0FC0020ECE2 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = AWCRMQBEL6;
+						DevelopmentTeam = J34B2LJ3L7;
 						ProvisioningStyle = Automatic;
 					};
 					928D94021EAFB0FC0020ECE2 = {
@@ -291,6 +294,7 @@
 				928D942D1EAFB66F0020ECE2 /* spout.jpg in Resources */,
 				928D93FD1EAFB0FC0020ECE2 /* LaunchScreen.storyboard in Resources */,
 				928D94291EAFB66F0020ECE2 /* capeSpear.jpg in Resources */,
+				C144EC8C1EC1EF0200995BD7 /* user_location.png in Resources */,
 				928D942B1EAFB66F0020ECE2 /* eastcoastt1.jpg in Resources */,
 				928D942C1EAFB66F0020ECE2 /* lamanche.jpg in Resources */,
 				928D93FA1EAFB0FC0020ECE2 /* Assets.xcassets in Resources */,
@@ -494,7 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AWCRMQBEL6;
+				DEVELOPMENT_TEAM = J34B2LJ3L7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -512,7 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AWCRMQBEL6;
+				DEVELOPMENT_TEAM = J34B2LJ3L7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
